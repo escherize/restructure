@@ -11,14 +11,16 @@
       coll )
     {::type (type coll)}))
 
-(defn- m-able? [x]
+(defn- m-able?
+  "Map Entries are not m-able, lists and vectors are."
+  [coll x]
   (when x
     (and
-      (not= clojure.lang.MapEntry (type x))
+      (not (map? coll))
       (or (list? x) (vector? x)))))
 
 (defn ->m [coll]
-  (w/prewalk (fn [x] (if (m-able? x) (shallow->m x) x)) coll))
+  (w/prewalk (fn [x] (if (m-able? coll x) (shallow->m x) x)) coll))
 
 (defn m->list [m-map]
   (map m-map (range 0 (count m-map))))

@@ -1,4 +1,4 @@
-(defproject restructure "0.1.0"
+(defproject restructure "0.1.1"
   :description "function based data restructuring"
   :url "https://github.com/escherize/restructure"
   :license {:name "Eclipse Public License"
