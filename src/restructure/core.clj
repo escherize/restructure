@@ -132,6 +132,7 @@
                   :user_title "Person"})
   ;;=> {:id 1910191, :age 10.5, :user_title "Person"}
 
+  ;; if you want to make sure certian keys are there:
   (def safe-user-function
     (rs
       {:user_id :rs/id
